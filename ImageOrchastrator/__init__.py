@@ -31,8 +31,12 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         return f"Image metadata processing completed for {file_name}."
 
     except Exception as e:
-        logging.error(f"Error during orchestration for {file_name}: {e}")
-        # You can add error handling logic here, e.g., send a notification
-        return f"Image metadata processing failed for {file_name}: {e}"
+        logging.exception(f"Error during orchestration for {file_name}")
+        return {
+            "status": "failed",
+            "file_name": file_name,
+            "error": str(e)
+        }
+
 
 main = df.Orchestrator.create(orchestrator_function)

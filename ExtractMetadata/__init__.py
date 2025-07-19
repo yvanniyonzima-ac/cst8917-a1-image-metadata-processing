@@ -44,6 +44,7 @@ def main(input_data: dict) -> dict:
         logging.error(f"Cannot identify image file from {blob_uri}. It might be corrupted or an unsupported format.")
         raise
     except Exception as e:
-        logging.error(f"An unexpected error occurred during metadata extraction for {file_name}: {e}")
-        raise
+        logging.exception(f"Unexpected error during metadata extraction for {file_name}")
+        raise Exception(f"Metadata extraction failed for {file_name}: {str(e)}")
+
 
