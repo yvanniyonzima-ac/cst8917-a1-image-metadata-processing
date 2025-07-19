@@ -1,4 +1,4 @@
 azure-functions
-azure-durable-functions
+azure-durable-functions>=4.0.0
 Pillow
 pyodbc
