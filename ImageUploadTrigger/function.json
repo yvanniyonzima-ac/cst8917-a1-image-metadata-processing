@@ -1,13 +1,11 @@
 {
-  "scriptFile": "__init__.py",
-  "entryPoint": "main",
   "bindings": [
     {
       "name": "inputBlob",
       "type": "blobTrigger",
-      "direction": "in",
       "path": "images-input/{name}",
-      "connection": "AzureWebJobsStorage"
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
     },
     {
       "name": "starter",
