@@ -5,7 +5,7 @@ import azure.durable_functions as df
 
 # This function is the client function, triggered by a blob upload.
 # It starts the Durable Functions orchestration.
-async def main(inputBlob: func.InputStream, starter: str):
+async def main(inputBlob: func.InputStream, starter: str) -> None:
     logging.info(f"Python blob trigger function processed blob\n"
                  f"Name: {inputBlob.name}\n"
                  f"Size: {inputBlob.length} Bytes")
@@ -29,5 +29,5 @@ async def main(inputBlob: func.InputStream, starter: str):
 
     logging.info(f"Started orchestration with ID = '{instance_id}'.")
 
-    return f"Orchestration started for {file_name} with ID: {instance_id}"
+    #return f"Orchestration started for {file_name} with ID: {instance_id}"
 
